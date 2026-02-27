@@ -8,6 +8,7 @@
         :root {
             --odoo-purple: #714B67;
             --odoo-teal: #017E84;
+            --bg-color: #f4f7f9;
         }
 
         body {
@@ -17,9 +18,7 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            /* This looks for your background.jpg file in the same GitHub folder */
-            background: url('background.jpg') no-repeat center center fixed;
-            background-size: cover;
+            background-color: var(--bg-color);
             font-family: 'Inter', -apple-system, sans-serif;
         }
 
@@ -29,22 +28,20 @@
             gap: 20px;
             width: 90%;
             max-width: 350px;
-            z-index: 10;
         }
 
         .btn {
             display: block;
-            padding: 18px;
-            font-size: 1.1rem;
+            padding: 20px;
+            font-size: 1.2rem;
             font-weight: 600;
             text-align: center;
             text-decoration: none;
             color: white;
-            border-radius: 8px;
+            border-radius: 10px;
             transition: all 0.2s ease-in-out;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             border: none;
-            cursor: pointer;
         }
 
         .btn-docs {
@@ -57,8 +54,8 @@
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-            filter: brightness(1.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            filter: brightness(1.05);
         }
 
         .btn:active {
