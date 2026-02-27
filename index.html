@@ -9,7 +9,6 @@
             --odoo-purple: #714B67;
             --odoo-teal: #017E84;
             --youtube-red: #FF0000;
-            --bg-color: #f4f7f9;
         }
 
         body {
@@ -19,8 +18,22 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-color: var(--bg-color);
+            /* Update the URL below to your actual file path */
+            background-image: url('background.webp'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             font-family: 'Inter', -apple-system, sans-serif;
+        }
+
+        /* Added an overlay to ensure buttons pop against the background */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255, 255, 255, 0.1); /* Light tint */
+            z-index: -1;
         }
 
         .button-container {
@@ -29,6 +42,7 @@
             gap: 20px;
             width: 90%;
             max-width: 350px;
+            z-index: 1;
         }
 
         .btn {
@@ -39,10 +53,10 @@
             text-align: center;
             text-decoration: none;
             color: white;
-            border-radius: 10px;
+            border-radius: 12px;
             transition: all 0.2s ease-in-out;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            border: none;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .btn-docs {
@@ -58,13 +72,13 @@
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            filter: brightness(1.05);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+            filter: brightness(1.1);
         }
 
         .btn:active {
-            transform: translateY(-1px);
+            transform: translateY(-2px);
         }
     </style>
 </head>
