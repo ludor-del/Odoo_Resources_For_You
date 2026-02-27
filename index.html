@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odoo Resources</title>
+    <style>
+        :root {
+            --odoo-purple: #714B67;
+            --odoo-teal: #017E84;
+            --youtube-red: #FF0000;
+            --bg-color: #f4f7f9;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: var(--bg-color);
+            font-family: 'Inter', -apple-system, sans-serif;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 90%;
+            max-width: 350px;
+        }
+
+        .btn {
+            display: block;
+            padding: 20px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            border-radius: 10px;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: none;
+        }
+
+        .btn-docs {
+            background-color: var(--odoo-purple);
+        }
+
+        .btn-youtube {
+            background-color: var(--youtube-red);
+        }
+
+        .btn-book {
+            background-color: var(--odoo-teal);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            filter: brightness(1.05);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="button-container">
+        <a href="https://www.odoo.com/documentation/19.0/index.html" class="btn btn-docs" target="_blank">
+            Odoo Documentation
+        </a>
+
+        <a href="https://www.youtube.com/@Odoo" class="btn btn-youtube" target="_blank">
+            Odoo YouTube
+        </a>
+
+        <a href="https://www.odoo.com/book/194b2564" class="btn btn-book" target="_blank">
+            Book a Meeting
+        </a>
+    </div>
+
+</body>
+</html>
