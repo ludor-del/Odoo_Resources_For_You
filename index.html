@@ -1,41 +1,77 @@
-<style>
-    :root {
-        --odoo-purple: #714B67;
-        --odoo-teal: #017E84;
-        --youtube-black: #0F0F0F;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --odoo-purple: #714B67;
+            --odoo-teal: #017E84;
+            --youtube-black: #0F0F0F;
+        }
 
-    .btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 14px;
-        margin-bottom: 12px;
-        font-family: 'Inter', sans-serif;
-        font-size: 1rem;
-        font-weight: 600;
-        text-decoration: none;
-        color: white;
-        border-radius: 50px;
-        transition: all 0.3s ease;
-        width: 100%;
-        max-width: 300px;
-    }
+        /* Centering Logic */
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center; /* Horizontal centering */
+            align-items: center;     /* Vertical centering */
+            min-height: 100vh;       /* Takes full height of the browser */
+            background-color: #f4f4f4; /* Light neutral background */
+            font-family: 'Inter', sans-serif;
+        }
 
-    .btn:hover { transform: scale(1.05); filter: brightness(1.1); }
-    .btn-book { background-color: var(--odoo-purple); }
-    .btn-youtube { background-color: var(--youtube-black); }
-    .btn-docs { background-color: var(--odoo-teal); }
-</style>
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Space between buttons */
+            width: 100%;
+            max-width: 320px;
+            padding: 20px;
+        }
 
-<a href="https://www.odoo.com/book/194b2564" class="btn btn-book" target="_blank">
-    <span>📅</span> Book a Meeting
-</a>
+        /* Button Styling */
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: white;
+            border-radius: 50px;
+            transition: transform 0.2s ease, filter 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
 
-<a href="https://www.youtube.com/@Odoo" class="btn btn-youtube" target="_blank">
-    <span>▶</span> Odoo YouTube
-</a>
+        .btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
 
-<a href="https://www.odoo.com/documentation/19.0/index.html" class="btn btn-docs" target="_blank">
-    <span>📚</span> Documentation
-</a>
+        .btn-book { background-color: var(--odoo-purple); }
+        .btn-youtube { background-color: var(--youtube-black); }
+        .btn-docs { background-color: var(--odoo-teal); }
+
+        .btn span { margin-right: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="button-container">
+        <a href="https://www.odoo.com/book/194b2564" class="btn btn-book" target="_blank">
+            <span>📅</span> Book a Meeting
+        </a>
+
+        <a href="https://www.youtube.com/@Odoo" class="btn btn-youtube" target="_blank">
+            <span>▶</span> Odoo YouTube
+        </a>
+
+        <a href="https://www.odoo.com/documentation/19.0/index.html" class="btn btn-docs" target="_blank">
+            <span>📚</span> Documentation
+        </a>
+    </div>
+
+</body>
+</html>
