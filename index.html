@@ -3,86 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Odoo Resources</title>
+    <title>Odoo Resource Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --odoo-purple: #714B67;
-            --odoo-teal: #017E84;
-            --youtube-red: #FF0000;
-            --bg-color: #f4f7f9;
-        }
-
-        body {
+        /* 1. Global Reset */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+        }
+
+        /* 2. Background Image Setup */
+        .container {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            background: url('background.png') no-repeat center center;
+            background-size: cover;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100vh;
-            background-color: var(--bg-color);
-            font-family: 'Inter', -apple-system, sans-serif;
         }
 
-        .button-container {
+        /* 3. The Clickable Overlay Area 
+           This container sits directly over the monitor in the image.
+        */
+        .button-overlay {
+            position: relative;
+            width: 28%; /* Width relative to the monitor screen size */
+            max-width: 400px;
+            height: 40%;
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            width: 90%;
-            max-width: 350px;
+            justify-content: center;
+            gap: 12px; /* Adjust spacing to match the drawing */
+            transform: translateY(-5%); /* Fine-tune vertical position */
         }
 
-        .btn {
+        /* 4. Invisible Hit-Zones */
+        .hit-zone {
             display: block;
-            padding: 20px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            text-align: center;
+            width: 100%;
+            height: 18%; /* Height of each individual button area */
+            border-radius: 50px;
             text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        /* Subtle Hover Feedback */
+        .hit-zone:hover {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            transform: scale(1.02);
+        }
+
+        /* Optional: Visual "Click Me" Tooltip on Hover */
+        .hit-zone::after {
+            content: "Click Me!";
+            position: absolute;
+            left: -100px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #714B67;
             color: white;
-            border-radius: 10px;
-            transition: all 0.2s ease-in-out;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            border: none;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
         }
 
-        .btn-docs {
-            background-color: var(--odoo-purple);
+        .hit-zone:hover::after {
+            opacity: 1;
         }
 
-        .btn-youtube {
-            background-color: var(--youtube-red);
-        }
-
-        .btn-book {
-            background-color: var(--odoo-teal);
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            filter: brightness(1.05);
-        }
-
-        .btn:active {
-            transform: translateY(-1px);
+        /* 5. Responsiveness */
+        @media (max-width: 768px) {
+            .button-overlay {
+                width: 60%;
+                height: 30%;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="button-container">
-        <a href="https://www.odoo.com/documentation/19.0/index.html" class="btn btn-docs" target="_blank">
-            Odoo Documentation
-        </a>
+    <main class="container">
+        <div class="button-overlay">
+            
+            <a href="https://www.odoo.com/book/194b2564" 
+               class="hit-zone" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               title="Book a Meeting">
+            </a>
 
-        <a href="https://www.youtube.com/@Odoo" class="btn btn-youtube" target="_blank">
-            Odoo YouTube
-        </a>
+            <a href="https://www.odoo.com/documentation/19.0/index.html" 
+               class="hit-zone" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               title="Documentation">
+            </a>
 
-        <a href="https://www.odoo.com/book/194b2564" class="btn btn-book" target="_blank">
-            Book a Meeting
-        </a>
-    </div>
+            <a href="https://www.youtube.com/@Odoo" 
+               class="hit-zone" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               title="YouTube Channel">
+            </a>
+
+        </div>
+    </main>
 
 </body>
 </html>
