@@ -12,112 +12,63 @@
             --youtube-black: #0F0F0F;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body, html {
             height: 100%;
+            margin: 0;
             font-family: 'Inter', sans-serif;
-            overflow: hidden; /* Prevents scrolling */
-        }
-
-        /* 1. The Background Layer */
-        .background-wrapper {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            /* Replace 'background.jpg' with your actual image file name */
-            background: url('your-whiteboard-image.jpg') no-repeat center center;
-            background-size: contain; 
-            background-color: #f4f4f4; /* Matches the whiteboard bezel */
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 1;
+            background-color: transparent; /* Allows your whiteboard image to show through */
         }
 
-        /* 2. The Interactive Overlay (Positioned over the Laptop Screen) */
-        .screen-overlay {
-            position: relative;
-            width: 100%;
-            max-width: 320px; /* Adjust this to fit the 'laptop screen' width in your image */
+        .button-container {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 15px;
+            width: 100%;
+            max-width: 300px;
             padding: 20px;
-            z-index: 2;
-            /* Shifting slightly up to align with the center of the drawn laptop */
-            margin-top: -15px; 
         }
 
-        /* 3. Button Styling */
         .btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 14px 20px;
+            padding: 16px 24px;
             border-radius: 50px;
             text-decoration: none;
             color: white;
             font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.2s, filter 0.2s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
 
-        .btn span {
-            margin-right: 10px;
-            font-size: 1.2rem;
-        }
+        .btn span { margin-right: 12px; font-size: 1.2rem; }
+        
+        /* Interaction */
+        .btn:hover { transform: scale(1.05); filter: brightness(1.1); }
 
-        .btn:hover {
-            transform: scale(1.05);
-            filter: brightness(1.15);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        }
-
-        /* Button Colors */
+        /* Colors */
         .btn-book { background-color: var(--odoo-purple); }
         .btn-youtube { background-color: var(--youtube-black); }
         .btn-docs { background-color: var(--odoo-teal); }
-
-        /* Responsive scaling for smaller screens */
-        @media (max-width: 768px) {
-            .screen-overlay {
-                max-width: 260px;
-                gap: 8px;
-            }
-            .btn {
-                padding: 10px 15px;
-                font-size: 0.8rem;
-            }
-        }
     </style>
 </head>
 <body>
 
-    <div class="background-wrapper">
-        <div class="screen-overlay">
-            
-            <a href="https://www.odoo.com/book/194b2564" class="btn btn-book" target="_blank">
-                <span>📅</span> Book a Meeting
-            </a>
+    <div class="button-container">
+        <a href="https://www.odoo.com/book/194b2564" class="btn btn-book" target="_blank">
+            <span>📅</span> Book a Meeting
+        </a>
 
-            <a href="https://www.youtube.com/@Odoo" class="btn btn-youtube" target="_blank">
-                <span>▶</span> Odoo YouTube
-            </a>
+        <a href="https://www.youtube.com/@Odoo" class="btn btn-youtube" target="_blank">
+            <span>▶</span> Odoo YouTube
+        </a>
 
-            <a href="https://www.odoo.com/documentation/19.0/index.html" class="btn btn-docs" target="_blank">
-                <span>📚</span> Documentation
-            </a>
-
-        </div>
+        <a href="https://www.odoo.com/documentation/19.0/index.html" class="btn btn-docs" target="_blank">
+            <span>📚</span> Documentation
+        </a>
     </div>
 
 </body>
