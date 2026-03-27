@@ -20,17 +20,30 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: transparent; 
+            
+            /* --- UPDATED BACKGROUND PROPERTIES --- */
+            background-color: #0c0d12; /* A dark color from the image to prevent a white flash */
+            background-image: url('https://replicate.delivery/xpbkg/jY1yP6O6jR1N1gA9fD9Qe9H8X9v3U9Z5Y9o1T2I3L5e6F3G4A/output.png');
+            background-size: cover; /* Ensures the image covers the entire screen */
+            background-position: center; /* Centers the chalkboard */
+            background-repeat: no-repeat; /* Prevents the image from tiling */
+            background-attachment: fixed; /* Optional: Keeps the background static if you scroll */
         }
 
         .button-container {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px; /* Slightly increased gap for better layout against the flowchart */
             width: 100%;
             max-width: 300px;
             min-width: 260px;
             padding: 20px;
+            
+            /* Added a subtle backdrop blur and dark background to help the text contrast */
+            background-color: rgba(12, 13, 18, 0.7); 
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .btn {
@@ -58,7 +71,7 @@
         }
         .btn-docs { background-color: var(--odoo-teal); }
         .btn-learning { background-color: var(--odoo-light-teal); }
-        .btn-youtube { background-color: var(--youtube-black); }
+        .btn-youtube { background-color: var(--youtube-black); border: 1px solid rgba(255,255,255,0.2); }
 
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(113, 75, 103, 0.7); }
