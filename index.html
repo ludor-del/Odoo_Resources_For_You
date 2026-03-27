@@ -9,6 +9,7 @@
         :root {
             --odoo-purple: #714B67;
             --odoo-teal: #017E84;
+            --odoo-light-teal: #00A09D;
             --youtube-black: #0F0F0F;
         }
 
@@ -19,7 +20,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: transparent; /* Allows your whiteboard image to show through */
+            background-color: transparent; 
         }
 
         .button-container {
@@ -28,6 +29,7 @@
             gap: 15px;
             width: 100%;
             max-width: 300px;
+            min-width: 260px;
             padding: 20px;
         }
 
@@ -42,17 +44,27 @@
             font-weight: 600;
             transition: transform 0.2s, filter 0.2s;
             box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            text-align: center;
         }
 
         .btn span { margin-right: 12px; font-size: 1.2rem; }
         
-        /* Interaction */
         .btn:hover { transform: scale(1.05); filter: brightness(1.1); }
 
-        /* Colors */
-        .btn-book { background-color: var(--odoo-purple); }
-        .btn-youtube { background-color: var(--youtube-black); }
+        /* Colors & Specialized Animations */
+        .btn-book { 
+            background-color: var(--odoo-purple); 
+            animation: pulse 2s infinite; 
+        }
         .btn-docs { background-color: var(--odoo-teal); }
+        .btn-learning { background-color: var(--odoo-light-teal); }
+        .btn-youtube { background-color: var(--youtube-black); }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(113, 75, 103, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(113, 75, 103, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(113, 75, 103, 0); }
+        }
     </style>
 </head>
 <body>
@@ -62,12 +74,16 @@
             <span>📅</span> Book a Meeting
         </a>
 
-        <a href="https://www.youtube.com/@Odoo" class="btn btn-youtube" target="_blank">
-            <span>▶</span> Odoo YouTube
-        </a>
-
         <a href="https://www.odoo.com/documentation/19.0/index.html" class="btn btn-docs" target="_blank">
             <span>📚</span> Documentation
+        </a>
+
+        <a href="https://www.odoo.com/slides" class="btn btn-learning" target="_blank">
+            <span>🎓</span> Odoo Learning
+        </a>
+
+        <a href="https://www.youtube.com/@Odoo" class="btn btn-youtube" target="_blank">
+            <span>▶</span> Odoo YouTube
         </a>
     </div>
 
